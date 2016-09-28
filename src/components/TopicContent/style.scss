@@ -1,0 +1,48 @@
+
+.content {
+  padding: 10px 50px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.info {
+  background: #e3e3e3;
+  position: relative;
+  min-height: 100px;
+}
+
+.title {
+  height: 60px;
+  position: absolute;
+  left: 150px;
+  right: 20px;
+  top: 50%;
+  margin-top: -28px;
+  font-size: 20px;
+  h5 {
+    margin: 0;
+  }
+  p {
+    position: absolute;
+    bottom: 0px;
+    font-size: 14px;
+    white-space: pre;
+    margin: 0;
+  }
+  a {
+    color: blue;
+  }
+}
+
+.avatar {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  margin-top: -25px;
+  text-align: center;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+}

@@ -1,0 +1,54 @@
+.wrapper {
+  width: 100%;
+  div {
+    box-sizing: border-box;
+    width: 50%;
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    background: #e0e0e0;
+    cursor: pointer;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    height: 40px;
+    padding: 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+  }
+  p {
+    position: absolute;
+    width: 80%;
+    left: 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+  }
+  span {
+    position: absolute;
+    right: 15px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.selected {
+  border-bottom: 4px solid #5fee93;
+}
+
+
+

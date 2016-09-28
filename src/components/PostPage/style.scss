@@ -1,0 +1,43 @@
+.link {
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  a {
+    color: blue;
+  }
+}
+
+.input {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  right: 20px;
+  span {
+    margin-right: 10px;
+  }
+  select {
+    width: 20%;
+  }
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+  }
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  button {
+    display: block;
+    width: 50%;
+    margin: 20px auto;
+  }
+}
+.dialog {
+  height: 30px;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 35px;
+  line-height: 30px;
+  background: transparent;
+}

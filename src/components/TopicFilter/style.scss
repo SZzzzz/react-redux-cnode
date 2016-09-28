@@ -1,0 +1,43 @@
+@import "../common/constants";
+
+$border-bottom-color: #f7e31b;
+
+// tab切换动画
+@keyframes border {
+    from {
+        border-bottom: solid 5px rgba($border-bottom-color, 0);
+    }
+    to {
+        border-bottom: solid 5px $border-bottom-color;
+    }
+}
+
+.filter {
+    width: 100%;
+    min-width: 600px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background: $header-color;
+    cursor: pointer;
+    li {
+        width: 20%;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        float: left;
+        color: #fdf4da;
+        letter-spacing: 0.2em;
+    }
+}
+
+.selected {
+    background-color: rgba($header-color, 0.65);
+    border-bottom: solid 5px $border-bottom-color;
+    animation: border .2s ease;
+}

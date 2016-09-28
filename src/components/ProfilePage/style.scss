@@ -1,0 +1,84 @@
+.link {
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  a {
+    color: blue;
+  }
+}
+
+.filter {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #edf1ef;
+  li {
+    float: left;
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    background: #5fee93;
+  }
+}
+
+.selected {
+  background: #54ce96;
+}
+
+.list {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  li {
+    width: 100%;
+    border-bottom: 1px solid #9f9f9f;
+  }
+  a {
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    text-indent: 2em;
+  }
+}
+
+.logout {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  color: #fff;
+  cursor: pointer;
+  i {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.dialog {
+  width: 400px;
+  height: 100px;
+  h5 {
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+  button {
+    box-sizing: border-box;
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    font-size: 18px;
+    letter-spacing: 0.5em;
+  }
+  button:last-child {
+    color: red;
+  }
+}
+

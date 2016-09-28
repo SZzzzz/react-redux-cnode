@@ -1,0 +1,21 @@
+/*全局样式*/
+/*在index/jsx中require此文件即可引入全局样式*/
+@import './webFont/iconfont.css';
+@import '~normalize.css/normalize.css';
+@import "~github-markdown-css/github-markdown.css";
+
+body {
+    min-width: 600px;
+    text-decoration: none;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: '';
+    clear: both;
+    display: table;
+    height: 0;
+}

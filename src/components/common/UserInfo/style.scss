@@ -1,0 +1,26 @@
+.info {
+  width: 100%;
+  background: #57d89d;
+  text-align: center;
+  padding: 30px 0 10px;
+  color: #fdf4da;
+  p {
+    margin: 10px auto;
+  };
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.name {
+  font-size: 22px;
+}
+
+.score {
+  white-space: pre;
+}
+

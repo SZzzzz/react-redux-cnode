@@ -1,0 +1,17 @@
+export const FOOTER_CLICK = 'FOOTER_CLICK';
+export const FILTER_CLICK = 'FILTER_CLICK';
+export const REQUEST_TOPICS = 'REQUEST_TOPICS';
+export const RECEIVE_TOPICS = 'RECEIVE_TOPICS';
+export const REQUEST_PROFILE = 'REQUEST_PROFILE';
+export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
+export const LOGOUT = 'LOGOUT';
+export const LOGIN_SUCCEED = 'LOGIN_SUCCEED';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const LOGIN_RESET = 'LOGIN_RESET';
+export const REQUEST_CONTENT = 'REQUEST_CONTENT';
+export const RECEIVE_CONTENT = 'RECEIVE_CONTENT';
+export const RECEIVE_FAILED = 'RECEIVE_FAILED';
+export const REQUEST_USER = 'REQUEST_USER';
+export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECORD_PAGE_Y = 'RECORD_PAGE_Y';
+export const CLICK_UP = 'CLICK_UP';
