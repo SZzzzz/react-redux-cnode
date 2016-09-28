@@ -1,4 +1,4 @@
-import { LOGIN_SUCCEED, LOGIN_FAILED, LOGIN_RESET, LOGOUT } from '../actions/constants';
+import { LOGIN_SUCCEED, LOGIN_FAILED, UPDATE_USER, LOGOUT } from '../actions/constants';
 import { storeToken, deleteToken } from '../utils/dataStorge';
 
 let defaultState;
@@ -17,6 +17,8 @@ export default function (state = defaultState, action) {
         case LOGOUT:
             deleteToken('user');
             return {};
+        case UPDATE_USER:
+            return Object.assign({}, state, action.data);
         default:
             return state;
     }

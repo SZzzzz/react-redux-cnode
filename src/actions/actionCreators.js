@@ -56,7 +56,6 @@ function receiveTopics(data, filter, page) {
 // 发送登陆请求,验证token
 export function loginRequest(token) {
     return function (dispatch) {
-        let id;
         return fetch('https://cnodejs.org/api/v1/accesstoken', {
                 method: 'POST',
                 headers: {
@@ -67,24 +66,15 @@ export function loginRequest(token) {
             .then(response => response.json())
             .then(json => {
                 if (json.success){
-                    id = json.id;
-                    return fetch(`https://cnodejs.org/api/v1/user/${json.loginname}`);
+                    dispatch(loginSucceed({
+                        loginname: json.loginname,
+                        id: json.id,
+                        token
+                    }))
                 } else {
                     dispatch(loginFailed(json.error_msg));
                 }
              })
-            .then(response => response.json())
-            .then(json => {
-                if (json.success) {
-                    let data = {
-                        ...json.data,
-                        id,
-                        token
-                    };
-                    dispatch(loginSucceed(data));
-
-                }
-            })
             .then(setTimeout(() => dispatch({type: actions.LOGIN_RESET}), 2000));
     }
 }
@@ -111,37 +101,6 @@ export function logout() {
     return {
         type: actions.LOGOUT
     }
-}
-
-// 用loginname获取用户信息,存放在state.profile中
-export function fetchProfile(name) {
-    return function (dispatch) {
-        dispatch(requestTopics());
-        return fetch(`https://cnodejs.org/api/v1/user/${name}`)
-            .then(response => response.json())
-            .then(json => {
-                if(json.success) {
-                    dispatch(receiveProfile(json.data))
-                }
-
-            })
-    }
-}
-
-//  发送请求,载入Fetching
-function requestProfile() {
-    return {
-        type: actions.REQUEST_PROFILE
-    }
-}
-
-// 请求成功,收到topics数据
-function receiveProfile(data) {
-    return {
-        type: actions.RECEIVE_PROFILE,
-        data,
-    }
-
 }
 
 
@@ -187,14 +146,16 @@ function receiveFailed(msg) {
 
 
 // 使用loginname获取用户信息
-export function fetchUserInfo(name) {
+export function fetchUserInfo(name, updateProfile = false) {
     return function (dispatch) {
-        dispatch(requestUser());
+        if (!updateProfile) {
+            dispatch(requestUser());
+        }
         return fetch(`https://cnodejs.org/api/v1/user/${name}`)
             .then(res => res.json())
             .then(json => {
                 if(json.success) {
-                    dispatch(receiveUser(json.data))
+                    dispatch(receiveUser(json.data, updateProfile));
                 }
             })
     }
@@ -206,13 +167,16 @@ function requestUser() {
     }
 }
 
-function receiveUser(data) {
+function receiveUser(data, updateProfile) {
     return {
-        type: actions.RECEIVE_USER,
+        type: updateProfile ? actions.UPDATE_USER : actions.RECEIVE_USER,
         data
     }
 }
 
+
+
+// 记录滚动条位置
 export function recordPageY(pageY) {
     return {
         type: actions.RECORD_PAGE_Y,

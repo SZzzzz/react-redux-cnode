@@ -17,7 +17,19 @@ class MessagePage extends Component {
                 </div>
             )
         }
+        return (
+            <div>
+                <Header title='消息'/>
+                <Footer index={footer.index} footerClick={footerClick}/>
+            </div>
+        )
 
+    }
+    componentDidMount() {
+        let { footer, footerClick } =  this.props;
+        if(footer.index !== 'message'){
+            footerClick('message')
+        }
     }
 }
 

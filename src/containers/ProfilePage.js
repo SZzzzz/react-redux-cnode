@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { footerClick, logout, fetchTopicContent } from '../actions/actionCreators';
+import { footerClick, logout, fetchTopicContent, fetchUserInfo } from '../actions/actionCreators';
 import ProfilePage from '../components/ProfilePage';
 
 function mapStateToProps(state) {
@@ -14,7 +14,8 @@ function mapDispatchToProps(dispatch) {
     return {
         footerClick: bindActionCreators(footerClick, dispatch),
         logout: bindActionCreators(logout, dispatch),
-        fetchTopicContent: bindActionCreators(fetchTopicContent, dispatch)
+        fetchTopicContent: bindActionCreators(fetchTopicContent, dispatch),
+        fetchUserInfo: bindActionCreators(fetchUserInfo, dispatch)
     }
 }
 

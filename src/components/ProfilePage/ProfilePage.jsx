@@ -20,7 +20,7 @@ class ProfilePage extends Component {
     }
     render() {
 
-        let { footer, footerClick, profile, fetTopicContent } = this.props;
+        let { footer, footerClick, profile, fetchTopicContent } = this.props;
         if (!profile.token) {
             return (
                 <div>
@@ -30,7 +30,6 @@ class ProfilePage extends Component {
                 </div>
             )
         }
-        let data = profile[profile.filter];
         const customStyles = {
             content : {
                 boxSizing: 'border-box',
@@ -50,7 +49,7 @@ class ProfilePage extends Component {
                     <i className="iconfont">&#xe653;</i>
                 </div>
                 <UserInfo userInfo={profile}/>
-                <UserActions topics={profile.recent_topics} replies={profile.recent_replies} fetchTopicContent={fetTopicContent}/>
+                <UserActions topics={profile.recent_topics || []} replies={profile.recent_replies || []}  fetchTopicContent={fetchTopicContent}/>
                 <Footer index={footer.index} footerClick={footerClick}/>
                 <Modal isOpen={this.state.openModal}
                        style={customStyles}>
@@ -74,7 +73,16 @@ class ProfilePage extends Component {
             openModal: false
         })
     }
-
+    componentWillMount() {
+        let { profile, fetchUserInfo } = this.props;
+        fetchUserInfo(profile.loginname, true);
+    }
+    componentDidMount() {
+        let { footer, footerClick } =  this.props;
+        if(footer.index !== 'profile'){
+            footerClick('profile')
+        }
+    }
 }
 
 ProfilePage.propTypes = {};

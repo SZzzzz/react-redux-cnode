@@ -8,7 +8,7 @@ import Fetching from '../common/Fetching';
 
 class HomePage extends Component {
     render() {
-        let { homePage, footer, filterClick, footerClick, fetchTopics, fetchTopicContent } = this.props;
+        let { homePage, footer, filterClick, footerClick, fetchTopicContent } = this.props;
         let { isFetching, filter } = homePage;
         if (isFetching || !homePage[filter]) {
             return (
@@ -48,10 +48,13 @@ class HomePage extends Component {
 
     // 加载完页面滚动到上次记录的pageY处
     componentDidMount() {
-        let { homePage } =  this.props;
+        let { homePage, footer, footerClick } =  this.props;
         let data = homePage[homePage.filter];
         if(data) {
             window.scrollTo(0, data.pageY)
+        }
+        if(footer.index !== 'home'){
+            footerClick('home')
         }
     }
 

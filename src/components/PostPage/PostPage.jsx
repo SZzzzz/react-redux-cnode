@@ -97,7 +97,12 @@ class PostPage extends Component {
             show: false
         });
     }
-
+    componentDidMount() {
+        let { footer, footerClick } =  this.props;
+        if(footer.index !== 'post'){
+            footerClick('post')
+        }
+    }
 }
 
 PostPage.contentTypes = {

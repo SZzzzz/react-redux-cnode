@@ -27,7 +27,7 @@ class UserActions extends Component {
                     {data.map((item, index) => {
                         return (
                             <li key={index}>
-                                <Link to={`/topic/${item.id}`} onClick={() => this.props.fetchTopicContent(item.id)}>
+                                <Link to={`/topic/${item.id}`} onClick={() => {this.props.fetchTopicContent(item.id)}}>
                                     <p>{item.title}</p>
                                     <span>{transformDate(item.last_reply_at)}</span>
                                 </Link>
