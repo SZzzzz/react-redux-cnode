@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import transformDate from '../../utils/transformDate';
 import LinkToLogin from '../common/LinkToLogin';
 import fetch from 'isomorphic-fetch';
+import prefix from '../../utils/routePrefix';
 
 class Replies extends Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class Replies extends Component {
                                     </div>
                                     <div className={styles.right}>
                                         <div className={styles.info}>
-                                            <Link to={`/user/${author.loginname}`}
+                                            <Link to={`${prefix}/user/${author.loginname}`}
                                                   onClick={() => {this.props.fetchUserInfo(author.loginname)}}
                                             >
                                                 {author.loginname}

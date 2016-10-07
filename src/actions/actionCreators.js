@@ -19,9 +19,11 @@ export function filterClick(filter) {
 
 
 // 发送get请求获取topics
-export function fetchTopics(filter = 'all', page = 1) {
+export function fetchTopics(filter = 'all', page = 1, showFetching = true) {
     return function (dispatch) {
-        dispatch(requestTopics());
+        if(showFetching){
+            dispatch(requestTopics());
+        }
         return fetch(`https://cnodejs.org/api/v1/topics?tab=${filter}&page=${page}&limit=10&mdrender=false`)
             .then(response => response.json())
             .then(json => {
@@ -177,10 +179,11 @@ function receiveUser(data, updateProfile) {
 
 
 // 记录滚动条位置
-export function recordPageY(pageY) {
+export function recordPageY() {
+    let y = window.pageYOffset;
     return {
         type: actions.RECORD_PAGE_Y,
-        pageY
+        pageY: y
     }
 }
 

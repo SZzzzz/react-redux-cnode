@@ -105,7 +105,7 @@ class PostPage extends Component {
     }
 }
 
-PostPage.contentTypes = {
+PostPage.contextTypes = {
     router: PropTypes.object.isRequired
 };
 

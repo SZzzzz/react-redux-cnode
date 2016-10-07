@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import styles from './style.scss';
 import classnames from 'classnames';
 import {Link} from 'react-router';
+import prefix from '../../utils/routePrefix';
 
 class TopicItem extends Component {
     render() {
@@ -17,7 +18,7 @@ class TopicItem extends Component {
 
         return (
             <li className={styles.item}>
-                   <Link to={`/topic/${id}`} activeClassName={styles.link} onClick={() => fetchContent(id)}>
+                   <Link to={`${prefix}/topic/${id}`} activeClassName={styles.link} onClick={() => fetchContent(id)}>
                        <div className={styles.wrapper}>
                            <img src={avatar} alt="" className={styles.avatar}/>
                            <p className={styles.title}>

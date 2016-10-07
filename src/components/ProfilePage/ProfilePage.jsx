@@ -5,7 +5,6 @@ import Footer from '../common/Footer';
 import Header from '../common/Header';
 import LinkToLogin from '../common/LinkToLogin';
 import UserInfo from '../common/UserInfo';
-import { Link } from 'react-router';
 import Modal from 'react-modal';
 import UserActions from '../common/UserActions';
 

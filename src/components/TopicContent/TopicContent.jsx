@@ -6,6 +6,7 @@ import Fetching from '../common/Fetching';
 import { Link } from 'react-router';
 import transformDate from '../../utils/transformDate';
 import Replies from '../Replies';
+import prefix from '../../utils/routePrefix';
 
 class TopicContent extends Component {
     render() {
@@ -36,7 +37,7 @@ class TopicContent extends Component {
                 <Header title="详情" backButton={true} backClick={this.context.router.goBack}/>
                 <div className={`${styles.info}`}>
                     <div className={styles.avatar}>
-                        <Link to={`/user/${author.loginname}`} onClick={() => {this.props.fetchUserInfo(author.loginname)}}>
+                        <Link to={`${prefix}/user/${author.loginname}`} onClick={() => {this.props.fetchUserInfo(author.loginname)}}>
                             <img src={author.avatar_url} alt=""/>
                         </Link>
                     </div>

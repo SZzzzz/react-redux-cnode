@@ -7,6 +7,8 @@ import LoginPage from '../containers/LoginPage';
 import ProfilePage from '../containers/ProfilePage';
 import AccountInfo from '../containers/AccountInfo';
 import TopicContent from '../containers/TopicContent';
+import prefix from '../utils/routePrefix';
+console.log(prefix);
 
 class App extends Component {
     render() {
@@ -17,7 +19,7 @@ class App extends Component {
 }
 
 let routes = (
-    <Route path='/' component={App}>
+    <Route path={`${prefix}/`} component={App}>
         <IndexRoute component={HomePage}/>
         <Route path='post' component={PostPage}/>
         <Route path='message' component={MessagePage}/>

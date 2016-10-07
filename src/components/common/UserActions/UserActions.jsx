@@ -3,6 +3,7 @@ import styles from './style.scss';
 import classnames from 'classnames';
 import { Link } from 'react-router';
 import transformDate from '../../../utils/transformDate';
+import prefix from '../../../utils/routePrefix';
 
 class UserActions extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class UserActions extends Component {
                     {data.map((item, index) => {
                         return (
                             <li key={index}>
-                                <Link to={`/topic/${item.id}`} onClick={() => {this.props.fetchTopicContent(item.id)}}>
+                                <Link to={`${prefix}/topic/${item.id}`} onClick={() => {this.props.fetchTopicContent(item.id)}}>
                                     <p>{item.title}</p>
                                     <span>{transformDate(item.last_reply_at)}</span>
                                 </Link>

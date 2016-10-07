@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import styles from './style.scss';
+import prefix from '../../../utils/routePrefix';
 
 // 每个Item需要三个参数: 文字(itemName), 图标(itemIcon), 跳转target(linkTarget)
 //
@@ -15,7 +16,7 @@ class FooterItem extends Component {
         });
         return (
             <li className={itemClass} onClick={() => {if(!selected) action(index)}}>
-                <Link to={linkTarget}>
+                <Link to={`${prefix}${linkTarget}`}>
                     <i className='iconfont'>{itemIcon}</i>
                     <div>
                         {itemName}

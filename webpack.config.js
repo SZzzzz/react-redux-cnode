@@ -3,6 +3,19 @@ var webpack = require('webpack');
 
 var autoprefixer = require('autoprefixer');
 
+var plugins = [];
+
+var outpath = path.resolve(__dirname, 'build');
+
+if (process.argv.indexOf('-p') > -1) { //生产环境,参数有-p
+    plugins.push(new webpack.DefinePlugin({ //编译成生产版本
+        'process.env': {
+            NODE_ENV: JSON.stringify('production')
+        }
+    }));
+    outpath = '/Users/sz/Desktop/FE_projects/Szzzzz.github.io/source/demo/cnode/build/'
+}
+
 module.exports = {
     devServer: {
         proxy: {
@@ -20,7 +33,7 @@ module.exports = {
         './src/index.jsx'
     ],
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: outpath,
         publicPath: '/assets/',
         filename: 'bundle.js'
     },
@@ -50,8 +63,6 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
-    plugins: [
-        // new webpack.HotModuleReplacementPlugin()
-    ],
+    plugins: plugins,
     postcss: [autoprefixer]
 };
