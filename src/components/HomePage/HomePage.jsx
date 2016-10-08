@@ -39,22 +39,20 @@ class HomePage extends Component {
         let { homePage } =  newProps;
         let data = homePage[homePage.filter];
         if (!data && !homePage.isFetching) {
-            newProps.fetchTopics(homePage.filter);
+            newProps.fetchTopics(homePage.filter, 1, 20);
         }
     }
 
     componentDidUpdate() {
         this.size = getPageSize();
-        let { homePage } =  this.props;
-        let data = homePage[homePage.filter];
-        window.scrollTo(0, data?data.pageY:0);
+
     }
 
     // 载入界面前检查是否有数据,没有的话则获取数据
     componentWillMount () {
         let { homePage } =  this.props;
         if (!homePage[homePage.filter]) {
-            this.props.fetchTopics();
+            this.props.fetchTopics('all', 1 ,20);
         }
     }
 
@@ -75,12 +73,10 @@ class HomePage extends Component {
         window.onscroll = () => {
             if(!this.props.homePage.isFetching){
                 let { pageHeight, windowHeight } = this.size;
-                if(window.pageYOffset + windowHeight > pageHeight - 50) {
-                    let y = window.pageYOffset;
+                if(window.pageYOffset + windowHeight > pageHeight - 150) {
                     let homePage = this.props.homePage;
                     let data = homePage[homePage.filter];
                     fetchTopics(homePage.filter, data.page + 1);
-                    this.props.recordPageY(y);
                 }
             }
         };

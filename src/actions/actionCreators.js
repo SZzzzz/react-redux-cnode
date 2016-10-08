@@ -19,12 +19,10 @@ export function filterClick(filter) {
 
 
 // 发送get请求获取topics
-export function fetchTopics(filter = 'all', page = 1, showFetching = true) {
+export function fetchTopics(filter = 'all', page = 1, limit = 10) {
     return function (dispatch) {
-        if(showFetching){
             dispatch(requestTopics());
-        }
-        return fetch(`https://cnodejs.org/api/v1/topics?tab=${filter}&page=${page}&limit=10&mdrender=false`)
+        return fetch(`https://cnodejs.org/api/v1/topics?tab=${filter}&page=${page}&limit=${limit}&mdrender=false`)
             .then(response => response.json())
             .then(json => {
                 if(json.success) {

@@ -7,6 +7,12 @@ import { Router, hashHistory, browserHistory } from 'react-router';
 import routes from './routes';
 require('./styles/index.css');
 
+if(process.env.NODE_ENV === 'production') {
+    console.log('production');
+} else {
+    console.log('dev');
+}
+
 render(
 
         <Provider store={store}>
