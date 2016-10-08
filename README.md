@@ -19,7 +19,7 @@
 
 ## 状态树
 本项目使用redux管理状态,状态树如图:
-![截图](https://raw.githubusercontent.com/SZzzzz/react-redux-cnode/master/src/images/status_tree.png)
+![截图](https://raw.githubusercontent.com/SZzzzz/react-redux-cnode/master/src/images/status_tree.png)  
 基本思路是每个页面对应一个reducer,管理本页面的状态。其中:
 - `footer`对应底部tab条
 - `homePage`对应主页
