@@ -19,4 +19,4 @@
 
 ## 实现
 本项目采用了redux管理状态,状态树如图:
-![status tree](./images/status_tree.png)
+![status tree](https://github.com/SZzzzz/react-redux-cnode/tree/master/src/images/status_tree.png)
