@@ -59,10 +59,6 @@ class HomePage extends Component {
     // 加载完页面滚动到上次记录的pageY处
     componentDidMount() {
         let { homePage, footer, footerClick, fetchTopics } =  this.props;
-        let data = homePage[homePage.filter];
-        if(data) {
-            window.scrollTo(0, data.pageY)
-        }
         if(footer.index !== 'home'){
             footerClick('home')
         }
