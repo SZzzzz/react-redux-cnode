@@ -145,7 +145,7 @@ function receiveFailed(msg) {
 }
 
 
-// 使用loginname获取用户信息
+// 使用loginname获取用户信息, updateProfile用于本人刷新数据
 export function fetchUserInfo(name, updateProfile = false) {
     return function (dispatch) {
         if (!updateProfile) {
@@ -174,7 +174,32 @@ function receiveUser(data, updateProfile) {
     }
 }
 
+// 获取消息
+export function fetchMessages(token) {
+    return function (dispatch) {
+        dispatch(requestMessages());
+        return fetch(`https://cnodejs.org/api/v1/messages?accesstoken=${token}`)
+            .then(res => res.json())
+            .then(json => {
+                if(json.success) {
+                    dispatch(receiveMessages(json.data));
+                }
+            })
+    }
+}
 
+function requestMessages() {
+    return {
+        type: actions.REQUEST_MESSAGES
+    }
+}
+
+function receiveMessages(data) {
+    return {
+        type: actions.RECEIVE_MESSAGES,
+        data
+    }
+}
 
 // 记录滚动条位置
 export function recordPageY() {

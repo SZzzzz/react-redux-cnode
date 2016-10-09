@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { footerClick, fetchTopics } from '../actions/actionCreators';
+import { footerClick, fetchTopicContent, fetchMessages, fetchUserInfo } from '../actions/actionCreators';
 import MessagePage from '../components/MessagePage';
 
 function mapStateToProps(state) {
     return {
         user: state.profilePage,
-        footer: state.footer
+        footer: state.footer,
+        messagePage: state.messagePage
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        footerClick: bindActionCreators(footerClick, dispatch)
+        footerClick: bindActionCreators(footerClick, dispatch),
+        fetchTopicContent: bindActionCreators(fetchTopicContent, dispatch),
+        fetchUserInfo: bindActionCreators(fetchUserInfo, dispatch),
+        fetchMessages: bindActionCreators(fetchMessages, dispatch)
     }
 }
 

@@ -5,6 +5,7 @@ import loginPage from './loginPage';
 import profilePage from './profilePage';
 import currentTopic from './currentTopic';
 import currentUser from './currentUser';
+import messagePage from './messagePage';
 
 export default combineReducers({
     footer,
@@ -12,5 +13,6 @@ export default combineReducers({
     loginPage,
     profilePage,
     currentTopic,
-    currentUser
+    currentUser,
+    messagePage
 })

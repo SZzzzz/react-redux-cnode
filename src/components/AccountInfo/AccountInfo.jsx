@@ -21,7 +21,7 @@ class AccountInfo extends Component {
             <div>
                 <Header title={`${loginname}的个人中心`} backButton={true} backClick={this.context.router.goBack}/>
                 <UserInfo userInfo={this.props.currentUser}/>
-                <UserActions topics={recent_topics} replies={recent_replies} fetchTopicContent={this.props.fetchTopicContent}/>
+                <UserActions topics={recent_topics || []} replies={recent_replies || []} fetchTopicContent={this.props.fetchTopicContent}/>
             </div>
         )
     }

@@ -1,8 +1,41 @@
-.link {
-  height: 200px;
-  line-height: 200px;
-  text-align: center;
+.wrapper {
+  width: 100%;
+  >div {
+    box-sizing: border-box;
+    width: 50%;
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    background: #e0e0e0;
+    cursor: pointer;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    border-bottom: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    padding: 30px;
+  }
+}
+
+.info {
   a {
     color: blue;
   }
+  .time {
+    float: right;
+  }
 }
+
+
+.selected {
+  border-bottom: 4px solid #5fee93;
+}
+
+
+

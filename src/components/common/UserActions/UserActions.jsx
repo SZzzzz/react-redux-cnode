@@ -40,7 +40,7 @@ class UserActions extends Component {
         )
     }
     getData() {
-        return this.props[this.state.filter];
+        return this.props[this.state.filter] || [];
     }
 }
 
