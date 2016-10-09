@@ -19,7 +19,7 @@ export function filterClick(filter) {
 
 
 // 发送get请求获取topics
-export function fetchTopics(filter = 'all', page = 1, limit = 10) {
+export function fetchTopics(filter = 'all', page = 1, limit = 20) {
     return function (dispatch) {
             dispatch(requestTopics());
         return fetch(`https://cnodejs.org/api/v1/topics?tab=${filter}&page=${page}&limit=${limit}&mdrender=false`)
